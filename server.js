@@ -10,6 +10,18 @@ app.get('/', (req, res) => {
     res.send('Welcome to the E-commerce API');
 });
 
+//Import Routes
+const usersRouter = require('./routes/users');
+const productsRouter = require('./routes/products');
+const cartsRouter = require('./routes/carts');
+const ordersRouter = require('./routes/orders');
+
+// Use routes
+app.use('/users', usersRouter);
+app.use('/products', productsRouter);
+app.use('/carts', cartsRouter);
+app.use('/orders', ordersRouter);
+
 //Route to Test database connection
 app.get('/testdb', async (req, res) => {
     try {
